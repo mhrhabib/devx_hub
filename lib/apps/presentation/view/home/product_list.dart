@@ -1,6 +1,8 @@
+import 'package:dev_x_hub/apps/presentation/view/home/product_details_screen.dart';
 import 'package:dev_x_hub/apps/presentation/viewModel/product/module.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../domain/model/product.dart';
 
@@ -14,10 +16,15 @@ class ProductList extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Prodcuts List"),
+        actions: [
+          IconButton(onPressed: (){
+            context.go("/carts");
+          }, icon: Icon(Icons.shopping_cart)),
+        ],
       ),
       body: products.when(
         data: (data) {
-          return   GridView.builder(
+          return GridView.builder(
             padding: const EdgeInsets.all(8),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
@@ -31,7 +38,11 @@ class ProductList extends ConsumerWidget {
               return InkWell(
                 borderRadius: BorderRadius.circular(15),
                 onTap: () {
-                  
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ProductDetailsPage(
+                      product: data[index],
+                    ),
+                  ));
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -55,14 +66,13 @@ class ProductList extends ConsumerWidget {
                             tag: "$index",
                             child: Container(
                               height: MediaQuery.of(context).size.height * 0.17,
-                              
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(15),
                                   topRight: Radius.circular(15),
                                 ),
                                 image: DecorationImage(
-                                  image: NetworkImage(product.image),
+                                  image: NetworkImage(product.image!),
                                   fit: BoxFit.fitHeight,
                                 ),
                               ),
@@ -71,7 +81,7 @@ class ProductList extends ConsumerWidget {
                           Padding(
                             padding: const EdgeInsets.all(4.0),
                             child: Text(
-                              product.title,
+                              product.title!,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -114,7 +124,7 @@ class ProductList extends ConsumerWidget {
                                 size: 15,
                               ),
                               const SizedBox(width: 4),
-                              Text(product.rating.rate.toString()),
+                              Text(product.rating!.rate.toString()),
                             ],
                           ),
                         ],
@@ -145,7 +155,9 @@ class ProductList extends ConsumerWidget {
           );
         },
         error: (error, stackTrace) => Text(error.toString()),
-        loading: () => const Center(child: CircularProgressIndicator(),),
+        loading: () => const Center(
+          child: CircularProgressIndicator(),
+        ),
       ),
     );
   }

@@ -1,5 +1,5 @@
 
-import 'package:dev_x_hub/apps/presentation/view/home/product_list.dart';
+import 'package:dev_x_hub/apps/presentation/routes.dart';
 import 'package:flutter/material.dart';
 
 class DevXHub extends StatelessWidget {
@@ -7,12 +7,14 @@ class DevXHub extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(
         primarySwatch: Colors.cyan,
       ),
 
-      home: const ProductList(),
+      routeInformationParser: router.routeInformationParser,
+      routeInformationProvider: router.routeInformationProvider,
+      routerDelegate: router.routerDelegate,
     );
   }
 }
