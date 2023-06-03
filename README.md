@@ -4,6 +4,12 @@ A new Flutter project.
 
 ## Getting Started
 
+Clone the project from github 
+-> run "flutter pub get" in the terminal
+-> after getting all the packages open an android emulator 
+-> the run "flutter run" in the terminal 
+And now you can browse the app
+
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
