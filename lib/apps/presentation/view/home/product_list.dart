@@ -1,5 +1,6 @@
 import 'package:dev_x_hub/apps/presentation/view/home/product_details_screen.dart';
 import 'package:dev_x_hub/apps/presentation/viewModel/product/module.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -18,8 +19,11 @@ class ProductList extends ConsumerWidget {
         title: const Text("Prodcuts List"),
         actions: [
           IconButton(onPressed: (){
-            context.go("/carts");
-          }, icon: Icon(Icons.shopping_cart)),
+            context.push("/carts");
+          }, icon: const Icon(Icons.shopping_cart)),
+          IconButton(onPressed: ()async{
+             await FirebaseAuth.instance.signOut();
+          }, icon: const Icon(Icons.logout))
         ],
       ),
       body: products.when(

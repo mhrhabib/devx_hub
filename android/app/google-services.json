@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "863957662966",
+    "project_id": "devx-hub-85644",
+    "storage_bucket": "devx-hub-85644.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863957662966:android:eafd706b88088235d4c0d7",
+        "android_client_info": {
+          "package_name": "com.example.dev_x_hub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "863957662966-v3p7pp5l3pjc2v3sfk3ehlr040gsmsrd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhZjJEhDwcm2KV9uue_IRlifVPPrOqKjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "863957662966-v3p7pp5l3pjc2v3sfk3ehlr040gsmsrd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

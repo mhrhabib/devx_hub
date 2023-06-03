@@ -194,7 +194,7 @@ class ProductDetailsPage extends ConsumerWidget {
                                 ref
                                     .read(cartNotifierProvider.notifier)
                                     .addToCart(cart);
-                                context.go('/carts');
+                                context.push('/carts');
                               },
                               icon: const Icon(
                                 Icons.shopping_cart,

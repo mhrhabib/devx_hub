@@ -1,7 +1,6 @@
 import 'package:dev_x_hub/apps/presentation/viewModel/cart/module.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CartScreen extends ConsumerWidget {
@@ -13,6 +12,9 @@ class CartScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(onPressed: (){
+            context.pop();
+        }, icon: const Icon(Icons.arrow_back)),
         title: const Text("Cart"),
       ),
 
