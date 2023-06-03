@@ -202,7 +202,7 @@ class ProductDetailsPage extends ConsumerWidget {
                               ),
                               label: const Text(
                                 'Add to cart',
-                                style: TextStyle(color: Colors.blue),
+                                style: TextStyle(color: Color.fromARGB(255, 52, 72, 88)),
                               ),
                             ),
                           ],
